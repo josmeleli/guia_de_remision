@@ -38,8 +38,8 @@ class guiaController extends Controller
         $pagos = Pago::all();
         $campos = campo::all();
         $agricultores = Agricultor::all();
-        $agricultorId = Agricultor::first()->id;
-        $transportistaId = Transportista::first()->id;
+        $agricultorId = optional(Agricultor::first())->id;
+        $transportistaId = optional(Transportista::first())->id;
         $transportistas = transportista::all();
         return view('guia_remision.index', compact('guias','pagos','campos','transportistas','agricultorId','transportistaId','agricultores','totalGuias','guiasPorEstado','guiasHoy','guiasPorEstadoConDetalles'));
     }

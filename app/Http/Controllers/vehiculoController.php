@@ -43,8 +43,8 @@ class vehiculoController extends Controller
         $user = User::first();
         $message = '¡Hola! ' . $user->name;
 
-        $agricultorId = Agricultor::first()->id;
-        $transportistaId = Transportista::first()->id;
+        $agricultorId = optional(Agricultor::first())->id;
+        $transportistaId = optional(Transportista::first())->id;
         
         
         return view('menu', compact('transportistas', 'conductores', 'agricultores', 'cargas', 'vehiculos', 'pagos', 'campos', 'message', 'agricultorId', 'transportistaId'));
